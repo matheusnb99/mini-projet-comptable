@@ -7,11 +7,11 @@ export const AppContextProvider = (props) => {
   const [state, setState] = useState(initialState)
 
   const add = useCallback((item) => {
-    setState(...state.items, item)
-    console.log(state)
+    setState((currentState) => {
+      currentState.items.push(item)
+    })
   }, [])
-  const toto = { add, state }
 
-  return <AppContext.Provider {...props} value={toto} />
+  return <AppContext.Provider {...props} value={{ add, state }} />
 }
 export default AppContext

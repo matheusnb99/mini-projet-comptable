@@ -6,7 +6,6 @@ import FormField from "./components/ui/FormField"
 import Button from "./components/ui/Button"
 import Link from "next/link"
 import AppContext from "./AppContext"
-import TableauComptable from "./components/TableauComptable"
 
 const initialValues = {
   label: "",
@@ -23,13 +22,11 @@ const formPage = () => {
   const handleFormSubmit = useCallback(
     (entry) => {
       add(entry)
-      // eslint-disable-next-line no-console
-      console.log("entry")
-      // eslint-disable-next-line no-console
-      console.log(entry)
       // localStorage.setItem("label", entry.label)
+      // eslint-disable-next-line no-console
+      console.log(state.items)
     },
-    [add]
+    [add, state]
   )
 
   return (
