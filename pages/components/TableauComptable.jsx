@@ -54,11 +54,15 @@ const TableauComptable = () => {
           ))}
           <tr key="total">
             <td className="border border-gray-300"></td>
-            <td className="border border-gray-300 w-2/5">
-              Total: <PInt value={calculRigth}></PInt>
+            <td className="border border-gray-300">
+              <div className="flex justify-between">
+                Total: <PInt value={calculRigth}></PInt>
+              </div>
             </td>
-            <td className="border border-gray-300 w-2/5">
-              Total: <PInt value={calculLeft}></PInt>
+            <td className="border border-gray-300">
+              <div className="flex justify-between">
+                Total: <PInt value={calculLeft}></PInt>
+              </div>
             </td>
           </tr>
         </tbody>

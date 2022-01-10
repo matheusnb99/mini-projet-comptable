@@ -18,12 +18,13 @@ const validationSchema = yup.object().shape({
 
 const formPage = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { add, state } = useContext(AppContext)
+  const { add } = useContext(AppContext)
   const handleFormSubmit = useCallback(
     (entry) => {
       add(entry)
       // eslint-disable-next-line no-console
-      console.log(state)
+      console.log(entry)
+      // localStorage.setItem("label", entry.label)
     },
     [add]
   )
@@ -38,7 +39,7 @@ const formPage = () => {
         validationSchema={validationSchema}
       >
         {({ handleSubmit, isValid }) => (
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit} noValidate className="mx-auto">
             <FormField
               name="libelleDepense"
               type="text"
