@@ -1,6 +1,7 @@
-import classNames from "classnames";
+import classNames from "classnames"
 const Input = (props) => {
-  const { className, ...otherProps } = props;
+  const { className, ...otherProps } = props
+
   return (
     <input
       {...otherProps}
@@ -9,6 +10,6 @@ const Input = (props) => {
         className
       )}
     />
-  );
-};
-export default Input;
+  )
+}
+export default Input

@@ -1,4 +1,3 @@
-import deepmerge from "deepmerge"
 import { createContext, useState, useCallback } from "react"
 import initialState from "../Database/State"
 
@@ -8,13 +7,10 @@ export const AppContextProvider = (props) => {
   const [state, setState] = useState(initialState)
 
   const add = useCallback((item) => {
-    setState((currentState) => {
-      deepmerge(currentState, {
-        items: item,
-      })
-    })
+    setState(...state.items, item)
   }, [])
+  const toto = { add, state }
 
-  return <AppContext.Provider {...props} value={{ add, state }} />
+  return <AppContext.Provider {...props} value={toto} />
 }
 export default AppContext
