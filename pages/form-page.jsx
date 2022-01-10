@@ -6,22 +6,25 @@ import FormField from "./components/ui/FormField"
 import Button from "./components/ui/Button"
 import Link from "next/link"
 import AppContext from "./AppContext"
+import TableauComptable from "./components/TableauComptable"
 
 const initialValues = {
-  libelleDepense: "",
-  valueDepense: 0,
+  label: "",
+  value: 0,
 }
 const validationSchema = yup.object().shape({
-  libelleDepense: yup.string().required().label("Libellé depense"),
-  valueDepense: yup.number().required().label("Value depense"),
+  label: yup.string().required().label("Libellé depense"),
+  value: yup.number().required().label("Value depense"),
 })
 
 const formPage = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { add } = useContext(AppContext)
+  const { add, state } = useContext(AppContext)
   const handleFormSubmit = useCallback(
     (entry) => {
       add(entry)
+      // eslint-disable-next-line no-console
+      console.log("entry")
       // eslint-disable-next-line no-console
       console.log(entry)
       // localStorage.setItem("label", entry.label)
@@ -41,13 +44,13 @@ const formPage = () => {
         {({ handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit} noValidate className="mx-auto">
             <FormField
-              name="libelleDepense"
+              name="label"
               type="text"
               placeholder="What's this expanse name"
             >
               Libellé depense
             </FormField>
-            <FormField name="valueDepense" type="number" placeholder="Value">
+            <FormField name="value" type="number" placeholder="Value">
               Value
             </FormField>
             <Button type="submit" disabled={!isValid}>

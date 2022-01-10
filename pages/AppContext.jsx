@@ -8,6 +8,7 @@ export const AppContextProvider = (props) => {
 
   const add = useCallback((item) => {
     setState(...state.items, item)
+    console.log(state)
   }, [])
   const toto = { add, state }
 
