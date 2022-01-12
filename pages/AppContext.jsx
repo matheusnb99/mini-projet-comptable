@@ -1,5 +1,5 @@
 import { createContext, useState, useCallback } from "react"
-import initialState from "../Database/State"
+import initialState from "../src/Database/State"
 
 const AppContext = createContext(initialState)
 
@@ -8,7 +8,7 @@ export const AppContextProvider = (props) => {
 
   const add = useCallback((item) => {
     setState((currentState) => {
-      currentState.items.push(item)
+      currentState.concat(item)
     })
   }, [])
 

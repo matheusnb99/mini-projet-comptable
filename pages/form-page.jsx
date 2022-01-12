@@ -2,8 +2,8 @@
 import * as yup from "yup"
 import { Formik } from "formik"
 import { useCallback, useContext } from "react"
-import FormField from "./components/ui/FormField"
-import Button from "./components/ui/Button"
+import FormField from "../src/components/ui/FormField"
+import Button from "../src/components/ui/Button"
 import Link from "next/link"
 import AppContext from "./AppContext"
 

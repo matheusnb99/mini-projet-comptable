@@ -1,4 +1,4 @@
-import TableauComptable from "./components/TableauComptable"
+import TableauComptable from "../src/components/TableauComptable"
 import Link from "next/link"
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import AppContext from "../AppContext"
+import AppContext from "../../pages/AppContext"
 import classNames from "classnames"
 import Item from "./Item"
 import PInt from "./PInt"
@@ -21,7 +21,7 @@ const TableauComptable = () => {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(state.items).map(([itemId, { label, value }]) => (
+          {Object.entries(state).map(([itemId, { label, value }]) => (
             <tr
               key={itemId}
               className={classNames(
