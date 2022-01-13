@@ -5,8 +5,10 @@ const Item = (props) => {
 
   return (
     <>
-      <PInt className="text-left" value={value}></PInt>
-      <p>{label}</p>
+      <div className="flex flex-col justify-center">
+        <PInt className="text-left" value={value}></PInt>
+        <p>{label}</p>
+      </div>
     </>
   )
 }

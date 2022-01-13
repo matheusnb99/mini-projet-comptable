@@ -6,16 +6,12 @@ import PInt from "./PInt"
 
 const TableauComptable = () => {
   const { state } = useContext(AppContext)
-  let i = 0
-  let calculLeft = 0
-  let calculRigth = 0
 
   return (
     <div className="w-3/4 ml-9">
       <table className="table-auto w-full border-collapse ">
         <thead>
           <tr>
-            <th className="border border-gray-600">id</th>
             <th className="border border-gray-600">+</th>
             <th className="border border-gray-600">-</th>
           </tr>
@@ -26,14 +22,12 @@ const TableauComptable = () => {
               key={itemId}
               className={classNames(
                 value >= 0 ? "Left" : "Right",
-                i % 2 == 0 ? "bg-slate-100" : ""
+                itemId % 2 == 0 ? "bg-slate-100" : ""
               )}
             >
-              <td className="border border-gray-300">{(i += 1)}</td>
               <td className="border border-gray-300 w-2/5">
                 {value > 0 ? (
                   <>
-                    <p className="invisible">{(calculRigth += value)}</p>
                     <Item label={label} value={value}></Item>
                   </>
                 ) : (
@@ -43,7 +37,6 @@ const TableauComptable = () => {
               <td className="border border-gray-300 w-2/5">
                 {value <= 0 ? (
                   <>
-                    <p className="invisible">{(calculLeft += value)}</p>
                     <Item label={label} value={value}></Item>
                   </>
                 ) : (
@@ -53,15 +46,30 @@ const TableauComptable = () => {
             </tr>
           ))}
           <tr key="total">
-            <td className="border border-gray-300"></td>
             <td className="border border-gray-300">
               <div className="flex justify-between">
-                Total: <PInt value={calculRigth}></PInt>
+                Total:
+                <PInt
+                  value={state
+                    .filter((x) => x.value > 0)
+                    .reduce(
+                      (accumulator, { value }) => accumulator + parseInt(value),
+                      0
+                    )}
+                ></PInt>
               </div>
             </td>
             <td className="border border-gray-300">
               <div className="flex justify-between">
-                Total: <PInt value={calculLeft}></PInt>
+                Total:
+                <PInt
+                  value={state
+                    .filter((x) => x.value < 0)
+                    .reduce(
+                      (accumulator, { value }) => accumulator + parseInt(value),
+                      0
+                    )}
+                ></PInt>
               </div>
             </td>
           </tr>
@@ -69,7 +77,12 @@ const TableauComptable = () => {
       </table>
       <div className="flex  justify-between">
         <p className="border border-gray-300 w-1">result: </p>
-        <PInt value={calculRigth + calculLeft}>{calculRigth + calculLeft}</PInt>
+        <PInt
+          value={state.reduce(
+            (accumulator, { value }) => accumulator + parseInt(value),
+            0
+          )}
+        ></PInt>
       </div>
     </div>
   )
