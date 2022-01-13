@@ -8,7 +8,7 @@ export const AppContextProvider = (props) => {
 
   const add = useCallback((item) => {
     setState((currentState) => {
-      currentState.concat(item)
+      return currentState.concat(item)
     })
   }, [])
 
