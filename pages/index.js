@@ -2,9 +2,9 @@ import TableauComptable from "../src/components/TableauComptable"
 import Link from "next/link"
 const Home = () => {
   return (
-    <div className="flex justify-between flex-wrap">
+    <div className="flex flex-col  flex-wrap">
       <div className="basis-[100%]">
-        <h1>DASHBOARD</h1>
+        <h1 className="text-2xl">DASHBOARD</h1>
         <Link href="/form-page">
           <a>Add new entry</a>
         </Link>
