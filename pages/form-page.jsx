@@ -13,7 +13,11 @@ const initialValues = {
 }
 const validationSchema = yup.object().shape({
   label: yup.string().required().label("Libellé depense"),
-  value: yup.number().required().label("Value depense"),
+  value: yup
+    .number()
+    .notOneOf([0], "Value must be different from 0")
+    .required()
+    .label("Value depense"),
 })
 
 const formPage = () => {
