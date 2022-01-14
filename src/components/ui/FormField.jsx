@@ -8,12 +8,12 @@ const FormField = (props) => {
     <Field {...otherProps}>
       {({ field, meta: { touched, error } }) => (
         <div className={className}>
-          <label className="block w-2/3 flex items-center justify-between">
+          <label className="block flex items-center justify-between">
             {children}
-            <Component className="w-2/3 px-5 mx-5" {...field} {...otherProps} />
+            <Component className="w-2/3 px-5" {...field} {...otherProps} />
           </label>
           {touched && error ? (
-            <p className="text-red-500 p-2 text-sm">{error}</p>
+            <p className="text-red-500 p-2 text-sm ml-100">{error}</p>
           ) : null}
         </div>
       )}

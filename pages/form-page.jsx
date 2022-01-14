@@ -12,55 +12,67 @@ const initialValues = {
   value: 0,
 }
 const validationSchema = yup.object().shape({
-  label: yup.string().required().label("Libellé depense"),
+  label: yup.string().required().label("input label"),
   value: yup
     .number()
     .notOneOf([0], "Value must be different from 0")
     .required()
-    .label("Value depense"),
+    .label("input value"),
 })
 
 const formPage = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { add } = useContext(AppContext)
   const handleFormSubmit = useCallback(
-    (entry) => {
-      add(entry)
-      // localStorage.setItem("label", entry.label)
+    (input) => {
+      add(input)
+      // localStorage.setItem("label", input.label)
     },
     [add]
   )
 
   return (
     <>
-      <Formik
-        onSubmit={(values) => {
-          handleFormSubmit(values)
-        }}
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-      >
-        {({ handleSubmit, isValid }) => (
-          <form onSubmit={handleSubmit} noValidate className="mx-auto">
-            <FormField
-              name="label"
-              type="text"
-              placeholder="What's this expanse name"
+      <div className="flex  flex-col items-center">
+        <Formik
+          onSubmit={(values) => {
+            handleFormSubmit(values)
+          }}
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+        >
+          {({ handleSubmit, isValid }) => (
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="flex flex-col w-2/3"
             >
-              Libellé depense
-            </FormField>
-            <FormField name="value" type="number" placeholder="Value">
-              Value
-            </FormField>
-            <Button type="submit" disabled={!isValid}>
-              ADD
-            </Button>
-          </form>
-        )}
-      </Formik>
-      <Link href="/">
-        <a>Cancel</a>
-      </Link>
+              <FormField
+                name="label"
+                type="text"
+                placeholder="What's this input's label"
+                className="basis-[100%] flex-wrap"
+              >
+                Label
+              </FormField>
+              <FormField
+                name="value"
+                type="number"
+                placeholder="Value"
+                className="basis-[100%] flex-wrap"
+              >
+                Value
+              </FormField>
+              <Button type="submit" disabled={!isValid} customClassName="mt-7">
+                ADD
+              </Button>
+            </form>
+          )}
+        </Formik>
+        <Link href="/">
+          <a>Cancel</a>
+        </Link>
+      </div>
     </>
   )
 }
