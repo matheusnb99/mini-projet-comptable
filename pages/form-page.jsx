@@ -6,6 +6,7 @@ import FormField from "../src/components/ui/FormField"
 import Button from "../src/components/ui/Button"
 import Link from "next/link"
 import AppContext from "./AppContext"
+import ActionMessage from "../src/components/ui/ActionMessage"
 
 const initialValues = {
   label: "",
@@ -71,6 +72,7 @@ const formPage = () => {
         <Link href="/">
           <a>Cancel</a>
         </Link>
+        <ActionMessage></ActionMessage>
       </div>
     </>
   )
