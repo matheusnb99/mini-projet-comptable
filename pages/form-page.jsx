@@ -21,14 +21,13 @@ const validationSchema = yup.object().shape({
 })
 
 const formPage = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { add } = useContext(AppContext)
+  const { add, state } = useContext(AppContext)
   const handleFormSubmit = useCallback(
     (input) => {
       add(input)
-      // localStorage.setItem("label", input.label)
+      localStorage.setItem("state", JSON.stringify([...state, input]))
     },
-    [add]
+    [add, state]
   )
 
   return (
