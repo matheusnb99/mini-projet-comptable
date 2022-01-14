@@ -1,28 +1,19 @@
 const State = [
   {
-    label:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit exercitationem vero accusantium accusamus cum, ullam atque nam tempora! Maiores asperiores eius nostrum esse quo nesciunt tenetur rem possimus culpa deleniti",
-    value: 100,
+    label: "Salaire",
+    value: 1000,
   },
   {
-    label: "test",
-    value: -100,
+    label: "Netflix",
+    value: -10,
   },
   {
-    label: "test",
-    value: -100,
+    label: "Spotify",
+    value: -10,
   },
   {
-    label: "test",
-    value: -100,
-  },
-  {
-    label: "test",
-    value: -100,
-  },
-  {
-    label: "test",
-    value: -100,
+    label: "GTX 1070 ti",
+    value: -899,
   },
 ]
 export default State
