@@ -3,8 +3,6 @@ import AppContext from "../../../pages/AppContext"
 
 const ActionMessage = () => {
   const { showElement } = useContext(AppContext)
-  // eslint-disable-next-line no-console
-  console.log(showElement)
 
   return (
     <div>
