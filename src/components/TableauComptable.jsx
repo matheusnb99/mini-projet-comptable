@@ -8,7 +8,7 @@ const TableauComptable = () => {
   const { state } = useContext(AppContext)
 
   return (
-    <div className="w-3/4 ml-9">
+    <div className="w-3/4">
       <table className="table-auto w-full border-collapse ">
         <thead>
           <tr>
@@ -47,20 +47,17 @@ const TableauComptable = () => {
           ))}
           <tr key="total">
             <td className="border border-gray-300">
-              <div className="flex justify-between">
+              <div className="flex justify-between py-2 px-4">
                 Total:
                 <PInt
                   value={state
                     .filter((x) => x.value > 0)
-                    .reduce(
-                      (accumulator, { value }) => accumulator + parseInt(value),
-                      0
-                    )}
+                    .reduce((accumulator, { value }) => accumulator + value, 0)}
                 ></PInt>
               </div>
             </td>
             <td className="border border-gray-300">
-              <div className="flex justify-between">
+              <div className="flex justify-between py-2 px-4">
                 Total:
                 <PInt
                   value={state
@@ -75,8 +72,8 @@ const TableauComptable = () => {
           </tr>
         </tbody>
       </table>
-      <div className="flex  justify-between">
-        <p className="border border-gray-300 w-1">result: </p>
+      <div className="flex  justify-between py-2 px-4">
+        <p className="w-1"> Result: </p>
         <PInt
           value={state.reduce(
             (accumulator, { value }) => accumulator + parseInt(value),
