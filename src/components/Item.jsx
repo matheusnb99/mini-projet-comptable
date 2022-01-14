@@ -5,7 +5,7 @@ const Item = (props) => {
 
   return (
     <>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center py-2 px-4">
         <PInt className="text-left" value={value}></PInt>
         <p>{label}</p>
       </div>
