@@ -1,4 +1,4 @@
-import { createContext, useState, useCallback } from "react"
+import { createContext, useState, useCallback, useEffect } from "react"
 import initialState from "../src/Database/State"
 
 const AppContext = createContext(initialState)
@@ -16,6 +16,14 @@ export const AppContextProvider = (props) => {
       setShowElement(false)
     }, 3000)
   }, [])
+
+  useEffect(() => {
+    setState(JSON.parse(localStorage.getItem("data") || []))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(state))
+  }, [state])
 
   return <AppContext.Provider {...props} value={{ add, state, showElement }} />
 }
