@@ -5,7 +5,7 @@ import { useCallback, useContext } from "react"
 import FormField from "../src/components/ui/FormField"
 import Button from "../src/components/ui/Button"
 import Link from "next/link"
-import AppContext from "./AppContext"
+import AppContext from "../src/AppContext"
 import ActionMessage from "../src/components/ui/ActionMessage"
 
 const initialValues = {

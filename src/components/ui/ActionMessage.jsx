@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import AppContext from "../../../pages/AppContext"
+import AppContext from "../../AppContext"
 
 const ActionMessage = () => {
   const { showElement } = useContext(AppContext)

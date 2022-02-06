@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import AppContext from "../../pages/AppContext"
+import AppContext from "../AppContext"
 import classNames from "classnames"
 import Item from "./Item"
 import PInt from "./PInt"
@@ -8,7 +8,7 @@ const TableauComptable = () => {
   const { state } = useContext(AppContext)
 
   return (
-    <div className="w-3/4">
+    <div className="w-3/4 mt-2">
       <table className="table-auto w-full border-collapse ">
         <thead>
           <tr>
