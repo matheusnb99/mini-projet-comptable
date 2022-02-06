@@ -1,7 +1,8 @@
 import classNames from "classnames"
 
 const variants = {
-  primary: "bg-red-400 disabled:bg-gray-300",
+  primary:
+    "bg-blue-500 hover:bg-blue-700 disabled:bg-gray-300 text-white font-bold rounded",
   secondary: "bg-green-400",
 }
 const sizes = {
