@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import * as yup from "yup"
 import { Formik } from "formik"
-import { useCallback, useContext } from "react"
-import FormField from "../src/components/ui/FormField"
-import Button from "../src/components/ui/Button"
 import Link from "next/link"
+import { useCallback, useContext } from "react"
+import * as yup from "yup"
 import AppContext from "../src/AppContext"
 import ActionMessage from "../src/components/ui/ActionMessage"
+import Button from "../src/components/ui/Button"
+import FormField from "../src/components/ui/FormField"
 
 const initialValues = {
   label: "",
@@ -72,7 +72,7 @@ const formPage = () => {
         <Link href="/">
           <a>Cancel</a>
         </Link>
-        <ActionMessage></ActionMessage>
+        <ActionMessage />
       </div>
     </>
   )

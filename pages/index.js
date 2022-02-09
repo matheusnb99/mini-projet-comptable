@@ -1,5 +1,5 @@
-import TableauComptable from "../src/components/TableauComptable"
 import Link from "next/link"
+import TableauComptable from "../src/components/TableauComptable"
 const Home = () => {
   return (
     <div className="flex flex-col flex-wrap items-center">
@@ -11,7 +11,7 @@ const Home = () => {
           </a>
         </Link>
       </div>
-      <TableauComptable></TableauComptable>
+      <TableauComptable />
     </div>
   )
 }

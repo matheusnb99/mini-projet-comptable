@@ -1,6 +1,6 @@
+import classNames from "classnames"
 import { useContext } from "react"
 import AppContext from "../AppContext"
-import classNames from "classnames"
 import Item from "./Item"
 import PInt from "./PInt"
 
@@ -28,7 +28,7 @@ const TableauComptable = () => {
               <td className="border border-gray-300 w-2/5">
                 {value > 0 ? (
                   <>
-                    <Item label={label} value={value}></Item>
+                    <Item label={label} value={value} />
                   </>
                 ) : (
                   ""
@@ -37,7 +37,7 @@ const TableauComptable = () => {
               <td className="border border-gray-300 w-2/5">
                 {value <= 0 ? (
                   <>
-                    <Item label={label} value={value}></Item>
+                    <Item label={label} value={value} />
                   </>
                 ) : (
                   ""
@@ -53,7 +53,7 @@ const TableauComptable = () => {
                   value={state
                     .filter((x) => x.value > 0)
                     .reduce((accumulator, { value }) => accumulator + value, 0)}
-                ></PInt>
+                />
               </div>
             </td>
             <td className="border border-gray-300">
@@ -66,7 +66,7 @@ const TableauComptable = () => {
                       (accumulator, { value }) => accumulator + parseInt(value),
                       0
                     )}
-                ></PInt>
+                />
               </div>
             </td>
           </tr>
@@ -79,7 +79,7 @@ const TableauComptable = () => {
             (accumulator, { value }) => accumulator + parseInt(value),
             0
           )}
-        ></PInt>
+        />
       </div>
     </div>
   )
